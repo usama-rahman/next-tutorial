@@ -23,17 +23,15 @@ const links = [
 
 const Navbar = () => {
   return (
-    <nav className="bg-base-300 py-4 ">
-      <div className="navbar px-8 mx-w-6xl mx-auto flex sm:flex-row">
-        <li>
-          <Link href="/" className="btn ">
-            Next.js
-          </Link>
+    <nav className="bg-slate-900 py-6 ">
+      <div className="navbar px-8 mx-w-6xl mx-auto flex sm:flex-row list-none items-center ">
+        <li className="bg-violet-900 py-2 px-3 text-slate-100 rounded ">
+          <Link href="/">Next.js</Link>
         </li>
-        <ul className="menu menu-horizontal md:ml-8 flex gap-4 ">
+        <ul className="md:ml-8 flex gap-4 text-slate-300">
           {links.map((link) => {
             return (
-              <li key={link.href}>
+              <li key={link.href} className="active:bg-slate-400">
                 <Link href={link.href} className="capitalize">
                   {link.label}
                 </Link>
