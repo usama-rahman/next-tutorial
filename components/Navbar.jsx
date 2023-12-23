@@ -1,4 +1,4 @@
-"use client";
+// "use client
 
 import Link from "next/link";
 
@@ -16,19 +16,21 @@ const links = [
     label: "tasks",
   },
   {
-    href: "/quary",
-    label: "quary",
+    href: "/query",
+    label: "query",
   },
 ];
 
 const Navbar = () => {
   return (
     <nav className="bg-base-300 py-4 ">
-      <div className="navbar px-8 mx-w-6xl max-auto flex-col sm:flex-row ">
-        <Link ref="/" className="btn btn-primary ">
-          Next.js
-        </Link>
-        <ul className="menu menu-horizontal md:ml-8  ">
+      <div className="navbar px-8 mx-w-6xl mx-auto flex sm:flex-row">
+        <li>
+          <Link href="/" className="btn ">
+            Next.js
+          </Link>
+        </li>
+        <ul className="menu menu-horizontal md:ml-8 flex gap-4 ">
           {links.map((link) => {
             return (
               <li key={link.href}>
