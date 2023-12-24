@@ -10,6 +10,7 @@ const DrinkList = ({ drinks }) => {
               href={`/drinks/${drink.idDrink}`}
               className="text-xl font-medium"
             >
+              {/* <div className="relative h-48 mb-4 "></div> */}
               {drink.strDrink}
             </Link>
           </li>
