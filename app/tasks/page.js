@@ -12,6 +12,12 @@ const TaskPage = () => {
     setTitle("");
   };
 
+  const handelDelete = (index) => {
+    let copyTask = [...mainTask];
+    copyTask.splice(index, 1);
+    setMainTask(copyTask);
+  };
+
   let renderTasks = <h2>No Task Here</h2>;
 
   if (mainTask.length > 0) {
@@ -22,7 +28,14 @@ const TaskPage = () => {
           className="flex justify-between items-center w-4/5 mt-2 "
         >
           <h2> {task.title} </h2>
-          <button className="bg-red-600 p-2 rounded-md "> Delete </button>
+          <button
+            className="bg-red-600 p-2 rounded-md text-gray-100"
+            onClick={() => {
+              handelDelete(index);
+            }}
+          >
+            Delete
+          </button>
         </li>
       );
     });
