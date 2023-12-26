@@ -4,10 +4,29 @@ import { useState } from "react";
 
 const TaskPage = () => {
   const [title, setTitle] = useState("");
+  const [mainTask, setMainTask] = useState([]);
 
   const handelSubmit = (e) => {
-    e.preventdefault();
+    e.preventDefault();
+    setMainTask([...mainTask, { title }]);
+    setTitle("");
   };
+
+  let renderTasks = <h2>No Task Here</h2>;
+
+  if (mainTask.length > 0) {
+    renderTasks = mainTask.map((task, index) => {
+      return (
+        <li
+          key={index}
+          className="flex justify-between items-center w-4/5 mt-2 "
+        >
+          <h2> {task.title} </h2>
+          <button className="bg-red-600 p-2 rounded-md "> Delete </button>
+        </li>
+      );
+    });
+  }
 
   return (
     <div>
@@ -15,9 +34,9 @@ const TaskPage = () => {
         <input
           type="text"
           className="border-2 rounded-xl w-96 h-10 outline-none px-3 text-xl"
+          value={title}
           onChange={(e) => {
             setTitle(e.target.value);
-            console.log(title);
           }}
         />
         <button className="bg-blue-700 px-4  text-gray-200 rounded-md ">
@@ -25,6 +44,9 @@ const TaskPage = () => {
         </button>
       </form>
       <hr className="mt-8" />
+      <div className="w-full flex items-center justify-center mt-20 text-xl">
+        <ul className="w-full"> {renderTasks} </ul>
+      </div>
     </div>
   );
 };
